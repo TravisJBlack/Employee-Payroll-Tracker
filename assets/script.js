@@ -29,6 +29,7 @@ function createEmployee(){
   employee.lastName = prompt("Enter your last name.");
   employee.salary = prompt("Enter your salary.");
   
+  // if user doesn't enter in a number it will make the salary 0
   if (isNaN(employee.salary)){
     employee.salary = 0;
   } else {
