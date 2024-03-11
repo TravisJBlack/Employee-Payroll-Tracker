@@ -42,7 +42,7 @@ function createEmployee(){
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
-  // TODO: Calculate and display the average salary
+  // declare varaible to store all salarys and then average it by the length of the array and then make it curreny format and then display to console
   let totalSalary =0;
   for(let i =0; i < employeesArray.length; i++){
     totalSalary = totalSalary + employeesArray[i].salary;
@@ -58,10 +58,8 @@ const displayAverageSalary = function(employeesArray) {
 
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
-  // TODO: Select and display a random employee
-  //sets arrays for both first and last name
+  // set index to a random number within the length of the array and create new array with just that value and displaying it to console
   let index = Math.floor(Math.random() * employeesArray.length);
-  console.log(index);
   const randomWinner = employeesArray[index];
   console.log(`Congratulations to ${randomWinner.firstName} ${randomWinner.lastName}, our random drawing winner!!!`);
 }
