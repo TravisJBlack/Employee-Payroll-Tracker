@@ -4,6 +4,7 @@ const addEmployeesBtn = document.querySelector('#add-employees-btn');
 // Collect employee data
 const collectEmployees = function() {
   // TODO: Get user input to create and return an array of employee objects
+  // code added with the help of eli via zoom recording...this sets up the employees array and creates prompts for the user
   event.preventDefault();
   const employees = [];
 
@@ -43,29 +44,26 @@ function createEmployee(){
 const displayAverageSalary = function(employeesArray) {
   // TODO: Calculate and display the average salary
   let totalSalary =0;
-  const salaryNumbers = employeesArray.flatMap(obj => { 
-    return Object.values(obj).filter(value => !isNaN(parseInt(value)));
-  });
-  for(i = 0; i < salaryNumbers.length; i++){
-    totalSalary = salaryNumbers[i] + totalSalary;
+  for(let i =0; i < employeesArray.length; i++){
+    totalSalary = totalSalary + employeesArray[i].salary;
   }
-   let salaryAverage = totalSalary / salaryNumbers.length;
+
+   let salaryAverage =totalSalary / employeesArray.length;
+    let formatter = salaryAverage.toLocaleString("en-US",{
+    style:"currency",
+    currency:"USD"
+  });
   console.log(`The average employee salary between our ${employeesArray.length} employee(s) is $${salaryAverage} `);
 }
 
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
   // TODO: Select and display a random employee
-  let firstName =[];
-  let lastName =[];
-  employeesArray.forEach(({firstName}) => {
-   first = firstName
-  });
-  employeesArray.forEach(({lastName}) => {
-     last = lastName
-   });
+  //sets arrays for both first and last name
   let index = Math.floor(Math.random() * employeesArray.length);
-  console.log(`Congratulations to ${first} ${last}, our random drawing winner!!!`);
+  console.log(index);
+  const randomWinner = employeesArray[index];
+  console.log(`Congratulations to ${randomWinner.firstName} ${randomWinner.lastName}, our random drawing winner!!!`);
 }
 
 /*
