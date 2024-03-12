@@ -48,12 +48,12 @@ const displayAverageSalary = function(employeesArray) {
     totalSalary = totalSalary + employeesArray[i].salary;
   }
 
-   let salaryAverage =totalSalary / employeesArray.length;
-    let formatter = salaryAverage.toLocaleString("en-US",{
-    style:"currency",
-    currency:"USD"
+  let salaryAverage =totalSalary / employeesArray.length;
+  let usDollar = new Intl.NumberFormat('en-US',{
+    style: 'currency',
+    currency: 'USD',
   });
-  console.log(`The average employee salary between our ${employeesArray.length} employee(s) is $${salaryAverage} `);
+  console.log(`The average employee salary between our ${employeesArray.length} employee(s) is ${usDollar.format(salaryAverage)} `);
 }
 
 // Select a random employee
